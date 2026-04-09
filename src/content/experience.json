@@ -1,0 +1,71 @@
+{
+  "title": {
+    "en": "Spring Tasting: Miura Peninsula's Five Stories",
+    "jp": "春の五皿：三浦半島の物語"
+  },
+  "duration": {
+    "en": "2 hours (Pre-show 15 min + Main 90 min + Post 20 min)",
+    "jp": "2時間（プレショー15分 + メイン90分 + アフター20分）"
+  },
+  "price": {
+    "en": "¥15,000 per person (tax included)",
+    "jp": "¥15,000 / 1名（税込）"
+  },
+  "capacity": {
+    "en": "15 guests per session",
+    "jp": "1回15名まで"
+  },
+  "highlights": [
+    {
+      "en": "Watch dried seaweed resurrect — black to vivid green in 10 seconds",
+      "jp": "わかめが10秒で黒から鮮やかな緑に蘇る瞬間を目撃する"
+    },
+    {
+      "en": "Grate real wasabi from Izu — feel the texture change under your hands",
+      "jp": "伊豆産の本わさびをすりおろし、手の下でテクスチャーが変わるのを感じる"
+    },
+    {
+      "en": "Discover frozen tuna's three faces — kelp-cured, paper-thin, and torch-seared",
+      "jp": "マグロ-60℃の三つの顔を発見する：とろろ昆布じめ・紙薄切り・半解凍炙り"
+    },
+    {
+      "en": "Feel Hayama beef melt on your palm at body temperature",
+      "jp": "葉山牛が体温で手のひらに溶けていくのを感じる"
+    }
+  ],
+  "team": {
+    "storyteller": {
+      "role": {
+        "en": "Storyteller",
+        "jp": "ストーリーテラー"
+      },
+      "description": {
+        "en": "Bilingual narrator (JP/EN)",
+        "jp": "日英バイリンガルナレーター"
+      }
+    },
+    "kitchen": {
+      "role": {
+        "en": "Kitchen crew",
+        "jp": "キッチンクルー"
+      },
+      "description": {
+        "en": "Trained local staff",
+        "jp": "トレーニング済みのローカルスタッフ"
+      }
+    }
+  },
+  "allergenNote": {
+    "en": "Allergen information will be provided after booking.",
+    "jp": "アレルギー情報は予約後にお知らせします。"
+  },
+  "imageNote": {
+    "en": "※ Photo is for illustrative purposes only.",
+    "jp": "※ 写真はイメージです。"
+  },
+  "cta": {
+    "en": "Reserve your seat",
+    "jp": "席を予約する"
+  },
+  "ctaUrl": "https://forms.gle/placeholder"
+}

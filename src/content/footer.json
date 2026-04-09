@@ -1,0 +1,47 @@
+{
+  "columns": [
+    {
+      "id": "about",
+      "heading": { "en": "Theater Locals", "jp": "Theater Locals" },
+      "links": [
+        { "label": { "en": "About Theater Locals", "jp": "Theater Localsについて" }, "href": "#" },
+        { "label": { "en": "Our Story", "jp": "私たちのストーリー" }, "href": "#" },
+        { "label": { "en": "Sustainability", "jp": "サステナビリティ" }, "href": "#" }
+      ]
+    },
+    {
+      "id": "help",
+      "heading": { "en": "Help", "jp": "サポート" },
+      "links": [
+        { "label": { "en": "Help Center", "jp": "ヘルプセンター" }, "href": "#" },
+        { "label": { "en": "Booking FAQs", "jp": "予約に関するFAQ" }, "href": "#" },
+        { "label": { "en": "Cancellation Policy", "jp": "キャンセルポリシー" }, "href": "#" },
+        { "label": { "en": "Terms of Service", "jp": "利用規約" }, "href": "#" },
+        { "label": { "en": "Privacy Policy", "jp": "プライバシーポリシー" }, "href": "#" },
+        { "label": { "en": "Specified Commercial Transactions Act", "jp": "特定商取引法に基づく表記" }, "href": "#" }
+      ]
+    },
+    {
+      "id": "partners",
+      "heading": { "en": "Partners", "jp": "パートナー" },
+      "links": [
+        { "label": { "en": "For Performers", "jp": "パフォーマーの方へ" }, "href": "#" },
+        { "label": { "en": "Partnership", "jp": "パートナーシップ" }, "href": "#" },
+        { "label": { "en": "Careers", "jp": "採用情報" }, "href": "#" }
+      ]
+    }
+  ],
+  "social": [
+    { "name": "Instagram", "href": "#", "icon": "instagram" },
+    { "name": "X (Twitter)", "href": "#", "icon": "twitter" }
+  ],
+  "newsletter": {
+    "label": { "en": "Stay in the loop", "jp": "最新情報を受け取る" },
+    "placeholder": { "en": "your@email.com", "jp": "your@email.com" },
+    "cta": { "en": "Subscribe", "jp": "登録する" }
+  },
+  "copyright": {
+    "en": "© 2026 Theater Locals. All rights reserved.",
+    "jp": "© 2026 Theater Locals. All rights reserved."
+  }
+}

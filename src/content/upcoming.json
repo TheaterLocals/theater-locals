@@ -1,0 +1,93 @@
+{
+  "title": {
+    "en": "Upcoming Sessions",
+    "jp": "次の開催予定"
+  },
+  "sessions": [
+    {
+      "id": "may-24",
+      "month": "May",
+      "date": {
+        "en": "Sat, May 24, 2026",
+        "jp": "2026年5月24日（土）"
+      },
+      "time": "18:00 - 20:00",
+      "title": {
+        "en": "Spring Tasting: Miura Peninsula's Five Stories",
+        "jp": "春の五皿：三浦半島の物語"
+      },
+      "seatsRemaining": 12,
+      "seatsTotal": 15,
+      "price": "¥15,000",
+      "cta": {
+        "en": "Book this session",
+        "jp": "この回を予約する"
+      },
+      "ctaUrl": "https://forms.gle/placeholder"
+    },
+    {
+      "id": "jun-07",
+      "month": "June",
+      "date": {
+        "en": "Sun, Jun 7, 2026",
+        "jp": "2026年6月7日（日）"
+      },
+      "time": "18:00 - 20:00",
+      "title": {
+        "en": "Spring Tasting: Miura Peninsula's Five Stories",
+        "jp": "春の五皿：三浦半島の物語"
+      },
+      "seatsRemaining": 15,
+      "seatsTotal": 15,
+      "price": "¥15,000",
+      "cta": {
+        "en": "Book this session",
+        "jp": "この回を予約する"
+      },
+      "ctaUrl": "https://forms.gle/placeholder"
+    },
+    {
+      "id": "jun-21",
+      "month": "June",
+      "date": {
+        "en": "Sun, Jun 21, 2026",
+        "jp": "2026年6月21日（日）"
+      },
+      "time": "18:00 - 20:00",
+      "title": {
+        "en": "Spring Tasting: Miura Peninsula's Five Stories",
+        "jp": "春の五皿：三浦半島の物語"
+      },
+      "seatsRemaining": 15,
+      "seatsTotal": 15,
+      "price": "¥15,000",
+      "cta": {
+        "en": "Book this session",
+        "jp": "この回を予約する"
+      },
+      "ctaUrl": "https://forms.gle/placeholder"
+    },
+    {
+      "id": "jul-12",
+      "month": "July",
+      "date": {
+        "en": "Sun, Jul 12, 2026",
+        "jp": "2026年7月12日（日）"
+      },
+      "time": "18:00 - 20:00",
+      "title": {
+        "en": "Spring Tasting: Miura Peninsula's Five Stories",
+        "jp": "春の五皿：三浦半島の物語"
+      },
+      "seatsRemaining": 15,
+      "seatsTotal": 15,
+      "price": "¥15,000",
+      "cta": {
+        "en": "Book this session",
+        "jp": "この回を予約する"
+      },
+      "ctaUrl": "https://forms.gle/placeholder"
+    }
+  ],
+  "months": ["May", "June", "July"]
+}

@@ -4,7 +4,7 @@ export default function MiuraInfo() {
       <div className="container-max">
         <h2 className="text-4xl font-bold mb-4 text-center">体験後、三浦半島へ。</h2>
         <p className="text-lg text-gray-600 text-center mb-12">
-          擬似体験は、本物の旅への入口です。
+          今夜の体験が、明日の旅への入口になる。
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

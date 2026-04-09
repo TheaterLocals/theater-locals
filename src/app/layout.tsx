@@ -4,8 +4,8 @@ import { SessionProvider } from "@/components/providers/SessionProvider";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
-  title: "Theater Locals - 地方文化の擬似体験",
-  description: "日本文化をショーのように体験する。三浦半島での本物の旅へ。",
+  title: "Theater Locals — Taste local tonight. Live it tomorrow.",
+  description: "A live window into local food culture. 47 minutes from Shinagawa. Tonight's dinner becomes tomorrow's adventure.",
   icons: {
     icon: "/favicon.ico",
   },

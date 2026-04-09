@@ -1,0 +1,81 @@
+{
+  "title": {
+    "en": "Not a food tour. A live window.",
+    "jp": "観光体験ではない。生きた窓だ。"
+  },
+  "comparison": {
+    "headers": {
+      "category": { "en": "", "jp": "" },
+      "typical": { "en": "Typical food tour", "jp": "よくある食体験" },
+      "theater": { "en": "Theater Locals", "jp": "Theater Locals" }
+    },
+    "rows": [
+      {
+        "category": { "en": "Format", "jp": "スタイル" },
+        "typical": { "en": "Watch and listen", "jp": "見て聞くだけ" },
+        "theater": { "en": "You have a role", "jp": "あなたが主役" }
+      },
+      {
+        "category": { "en": "Memory", "jp": "記憶" },
+        "typical": { "en": "Stays in your head", "jp": "頭の中だけ" },
+        "theater": { "en": "Stays in your body", "jp": "身体に刻まれる" }
+      },
+      {
+        "category": { "en": "After", "jp": "翌日" },
+        "typical": { "en": "Photos on Instagram", "jp": "SNSに投稿して終わり" },
+        "theater": { "en": "You visit the producer tomorrow", "jp": "生産者に会いに行く" }
+      },
+      {
+        "category": { "en": "Depth", "jp": "深さ" },
+        "typical": { "en": "Highlight reel", "jp": "ダイジェスト" },
+        "theater": { "en": "Geography, history, craft", "jp": "地理・歴史・技" }
+      }
+    ]
+  },
+  "principles": [
+    {
+      "id": "unity",
+      "icon": "🤝",
+      "title": { "en": "Unity", "jp": "一体感" },
+      "description": {
+        "en": "You're not a spectator. You grate the wasabi. You taste the difference.",
+        "jp": "観客じゃない。わさびをすりおろし、その違いを舌で知る。"
+      }
+    },
+    {
+      "id": "physicality",
+      "icon": "✋",
+      "title": { "en": "Physicality", "jp": "身体性" },
+      "description": {
+        "en": "Your hands, your tongue, your rhythm. Memory lives in the body.",
+        "jp": "あなたの手、舌、リズム。記憶は身体に宿る。"
+      }
+    },
+    {
+      "id": "surprise",
+      "icon": "✨",
+      "title": { "en": "Surprise", "jp": "サプライズ" },
+      "description": {
+        "en": "A seashell that plays a video. A stone that opens a map.",
+        "jp": "貝殻が映像を再生する。石が地図を開く。"
+      }
+    }
+  ],
+  "journey": {
+    "title": { "en": "The Journey", "jp": "旅の軌跡" },
+    "steps": [
+      {
+        "phase": { "en": "Tonight", "jp": "今夜" },
+        "label": { "en": "Tonight's dinner", "jp": "今夜の食卓" }
+      },
+      {
+        "phase": { "en": "Tomorrow", "jp": "明日" },
+        "label": { "en": "Tomorrow's adventure", "jp": "明日の冒険" }
+      },
+      {
+        "phase": { "en": "Forever", "jp": "ずっと" },
+        "label": { "en": "A lifetime connection", "jp": "一生つながる縁" }
+      }
+    ]
+  }
+}

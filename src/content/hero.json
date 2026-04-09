@@ -1,0 +1,63 @@
+{
+  "headline": {
+    "en": "Taste local tonight. Live it tomorrow.",
+    "jp": "物語が、ごちそうになる。"
+  },
+  "subheadline": {
+    "en": "47 minutes from Shinagawa. Tonight's dinner becomes tomorrow's adventure.",
+    "jp": "品川から47分。今夜の食卓が、明日の冒険の出発点になる。"
+  },
+  "trustSignals": [
+    {
+      "en": "5 courses • 90 min • From ¥15,000",
+      "jp": "5皿 • 90分 • ¥15,000〜"
+    },
+    {
+      "en": "Meet the producers tomorrow",
+      "jp": "明日、生産者に会いに行こう"
+    }
+  ],
+  "search": {
+    "datePlaceholder": {
+      "en": "Date",
+      "jp": "実施日"
+    },
+    "guestsLabel": {
+      "en": "Guests",
+      "jp": "人数"
+    },
+    "guestsOptions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    "languageLabel": {
+      "en": "Language",
+      "jp": "言語"
+    },
+    "languageOptions": ["EN", "JP"],
+    "cta": {
+      "en": "Find your experience",
+      "jp": "体験を探す"
+    }
+  },
+  "slideshow": [
+    {
+      "alt": "Seaweed coming back to life — black to vivid green",
+      "caption": {
+        "en": "Watch dried seaweed resurrect in 10 seconds",
+        "jp": "わかめが黒から鮮やかな緑に蘇る瞬間"
+      }
+    },
+    {
+      "alt": "Tuna changing color under a torch",
+      "caption": {
+        "en": "Torch-seared tuna — white to deep crimson",
+        "jp": "マグロがバーナーで白から深紅に変わる瞬間"
+      }
+    },
+    {
+      "alt": "Hayama beef melting on a palm",
+      "caption": {
+        "en": "Feel Hayama beef melt at body temperature",
+        "jp": "葉山牛が手のひらで溶ける瞬間"
+      }
+    }
+  ]
+}

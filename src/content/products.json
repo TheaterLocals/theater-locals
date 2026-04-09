@@ -1,0 +1,52 @@
+{
+  "title": {
+    "en": "Take the story home",
+    "jp": "物語を持ち帰る"
+  },
+  "subtitle": {
+    "en": "Every ingredient and vessel from tonight — available to order.",
+    "jp": "今夜の食材・器、すべてお取り寄せできます。"
+  },
+  "comingSoonLabel": {
+    "en": "Coming Soon",
+    "jp": "近日公開"
+  },
+  "comingSoonNote": {
+    "en": "We're curating the finest producers. Sign up below to be notified when the shop opens.",
+    "jp": "最高の生産者を厳選中です。ショップオープン時にお知らせします。"
+  },
+  "cta": {
+    "en": "Browse all products",
+    "jp": "すべての商品を見る"
+  },
+  "products": [
+    {
+      "id": "miura-wakame",
+      "name": { "en": "Miura Wakame Set", "jp": "三浦わかめセット" },
+      "price": "¥2,500",
+      "status": "coming_soon"
+    },
+    {
+      "id": "misaki-tuna",
+      "name": { "en": "Misaki Tuna Selection", "jp": "三崎まぐろセレクション" },
+      "price": "¥4,500",
+      "status": "coming_soon"
+    },
+    {
+      "id": "hayama-beef",
+      "name": { "en": "Hayama Beef (limited)", "jp": "葉山牛（数量限定）" },
+      "price": "¥6,000",
+      "status": "coming_soon"
+    },
+    {
+      "id": "craft-sake",
+      "name": { "en": "Craft Sake Set (4 breweries)", "jp": "クラフト酒セット（4蔵）" },
+      "price": "¥5,500",
+      "status": "coming_soon"
+    }
+  ],
+  "priceNote": {
+    "en": "※ Prices are estimates and subject to change.",
+    "jp": "※ 価格は予定価格です。変更になる場合があります。"
+  }
+}

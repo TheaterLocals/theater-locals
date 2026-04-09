@@ -1,65 +1,103 @@
+"use client";
+
+import { useState } from "react";
+import { ShoppingBag } from "lucide-react";
+import { getProductsContent } from "@/lib/content";
+
+const products = getProductsContent();
+
+const PRODUCT_EMOJIS: Record<string, string> = {
+  "miura-wakame": "🌿",
+  "misaki-tuna": "🐟",
+  "hayama-beef": "🥩",
+  "craft-sake": "🍶",
+};
+
 export default function ECPreview() {
-  const products = [
-    {
-      name: "秋刀魚セット（冷凍）",
-      price: 3000,
-      rating: 5,
-    },
-    {
-      name: "陶芸の器セット",
-      price: 8000,
-      rating: 5,
-    },
-    {
-      name: "Theater Localsガイドブック",
-      price: 2000,
-      rating: 5,
-    },
-    {
-      name: "パートナー商品 × 厳選品",
-      price: 5000,
-      rating: 5,
-    },
-  ];
+  const [lang, setLang] = useState<"en" | "jp">("en");
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-stone-50">
       <div className="container-max">
-        <h2 className="text-4xl font-bold mb-4 text-center">体験を家に持ち帰る</h2>
-        <p className="text-lg text-gray-600 text-center mb-12">
-          使った食材・器・ガイドブック。すべて購入できます。
-        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {products.map((product, idx) => (
-            <div key={idx} className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-yellow-200 to-orange-200 flex items-center justify-center">
-                <div className="text-5xl">
-                  {idx === 0 ? "🐟" : idx === 1 ? "🏺" : idx === 2 ? "📚" : "🎁"}
-                </div>
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+          <div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-1">
+              {products.title[lang]}
+            </h2>
+            <p className="text-gray-600">{products.subtitle[lang]}</p>
+          </div>
+          <div className="flex gap-2">
+            {(["en", "jp"] as const).map((l) => (
+              <button
+                key={l}
+                onClick={() => setLang(l)}
+                className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
+                  lang === l
+                    ? "bg-amber-600 text-white"
+                    : "bg-white text-gray-600 border border-gray-300 hover:border-amber-400"
+                }`}
+              >
+                {l.toUpperCase()}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Coming Soon banner */}
+        <div className="bg-amber-50 border border-amber-200 rounded-xl px-6 py-4 mb-10 flex items-start gap-3">
+          <ShoppingBag size={20} className="text-amber-600 mt-0.5 shrink-0" />
+          <p className="text-sm text-amber-800">
+            {products.comingSoonNote[lang]}
+          </p>
+        </div>
+
+        {/* Product grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
+          {products.products.map((product) => (
+            <div
+              key={product.id}
+              className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm relative"
+            >
+              {/* Coming soon overlay */}
+              <div className="absolute inset-0 bg-white/70 z-10 flex items-center justify-center">
+                <span className="bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  {products.comingSoonLabel[lang]}
+                </span>
               </div>
 
+              {/* Placeholder image */}
+              <div className="h-36 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
+                <span className="text-5xl">{PRODUCT_EMOJIS[product.id] ?? "🎁"}</span>
+              </div>
+
+              {/* Details */}
               <div className="p-4">
-                <h3 className="font-bold text-gray-900 mb-2">{product.name}</h3>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-lg font-bold text-amber-600">
-                    ¥{product.price.toLocaleString()}
-                  </span>
-                  <span className="text-sm text-amber-500">
-                    {'⭐'.repeat(product.rating)}
-                  </span>
-                </div>
-                <button className="w-full bg-amber-100 text-amber-800 py-2 rounded font-semibold hover:bg-amber-200 transition-colors">
-                  カートに入れる
-                </button>
+                <p className="text-sm font-semibold text-gray-900 mb-1 leading-tight">
+                  {product.name[lang]}
+                </p>
+                <p className="text-base font-bold text-amber-600">{product.price}</p>
               </div>
             </div>
           ))}
         </div>
 
+        {/* Price note */}
+        <p className="text-xs text-gray-400 text-center mb-6">
+          {products.priceNote[lang]}
+        </p>
+
+        {/* CTA (disabled) */}
         <div className="text-center">
-          <button className="btn-primary">すべての商品を見る</button>
+          <button
+            disabled
+            className="btn-primary opacity-40 cursor-not-allowed"
+          >
+            {products.cta[lang]}
+          </button>
         </div>
+
       </div>
     </section>
   );

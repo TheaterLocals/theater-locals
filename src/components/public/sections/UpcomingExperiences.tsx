@@ -1,65 +1,137 @@
+"use client";
+
+import { useState } from "react";
+import { CalendarDays, Clock, Users } from "lucide-react";
+import { getUpcomingContent, getSessionsByMonth, getSeatsLabel, isAlmostFull } from "@/lib/content";
+
+const upcoming = getUpcomingContent();
+
 export default function UpcomingExperiences() {
-  const experiences = [
-    {
-      date: "2026-05-24",
-      title: "秋刀魚の擬似体験",
-      participants: "6/10",
-      price: 15000,
-    },
-    {
-      date: "2026-06-14",
-      title: "能体験～古事記の世界～",
-      participants: "3/10",
-      price: 15000,
-    },
-    {
-      date: "2026-07-05",
-      title: "鎌倉の工芸体験",
-      participants: "8/10",
-      price: 15000,
-    },
-  ];
+  const [lang, setLang] = useState<"en" | "jp">("en");
+  const [activeMonth, setActiveMonth] = useState(upcoming.months[0]);
+
+  const sessions = getSessionsByMonth(activeMonth);
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding bg-stone-50">
       <div className="container-max">
-        <h2 className="text-4xl font-bold mb-12 text-center">次の開催予定</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {experiences.map((exp) => (
-            <div
-              key={exp.date}
-              className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow"
-            >
-              <div className="mb-4">
-                <p className="text-sm text-gray-500 mb-2">{exp.date}</p>
-                <h3 className="text-xl font-bold text-gray-900">{exp.title}</h3>
-              </div>
-
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-amber-600 font-semibold">¥{exp.price.toLocaleString()}</span>
-                <span className="text-sm text-gray-600">残席: {exp.participants}</span>
-              </div>
-
-              <div className="w-full bg-gray-200 h-2 rounded-full mb-4">
-                <div
-                  className="bg-amber-600 h-2 rounded-full"
-                  style={{ width: `${(parseInt(exp.participants.split('/')[0]) / parseInt(exp.participants.split('/')[1])) * 100}%` }}
-                />
-              </div>
-
-              <button className="w-full btn-primary text-sm">
-                詳細を見る
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+          <h2 className="text-4xl font-bold text-gray-900">
+            {upcoming.title[lang]}
+          </h2>
+          {/* Language toggle */}
+          <div className="flex gap-2">
+            {(["en", "jp"] as const).map((l) => (
+              <button
+                key={l}
+                onClick={() => setLang(l)}
+                className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
+                  lang === l
+                    ? "bg-amber-600 text-white"
+                    : "bg-white text-gray-600 border border-gray-300 hover:border-amber-400"
+                }`}
+              >
+                {l.toUpperCase()}
               </button>
-            </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Month tabs */}
+        <div className="flex gap-2 mb-8 border-b border-gray-200">
+          {upcoming.months.map((month) => (
+            <button
+              key={month}
+              onClick={() => setActiveMonth(month)}
+              className={`pb-3 px-4 text-sm font-semibold transition-colors border-b-2 -mb-px ${
+                activeMonth === month
+                  ? "border-amber-600 text-amber-600"
+                  : "border-transparent text-gray-500 hover:text-gray-800"
+              }`}
+            >
+              {month}
+            </button>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <button className="btn-secondary px-8">
-            すべての開催予定を見る
-          </button>
-        </div>
+        {/* Session cards */}
+        {sessions.length === 0 ? (
+          <p className="text-center text-gray-500 py-12">
+            {lang === "en" ? "No sessions available for this month." : "この月の開催予定はありません。"}
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sessions.map((session) => {
+              const almostFull = isAlmostFull(session);
+              const seatsLabel = getSeatsLabel(session, lang);
+              const fillPct = Math.round(
+                ((session.seatsTotal - session.seatsRemaining) / session.seatsTotal) * 100
+              );
+
+              return (
+                <div
+                  key={session.id}
+                  className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+                >
+                  {/* Date & time */}
+                  <div className="flex items-start gap-2 mb-3">
+                    <CalendarDays size={15} className="text-amber-600 mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900">
+                        {session.date[lang]}
+                      </p>
+                      <p className="text-xs text-gray-500 flex items-center gap-1 mt-0.5">
+                        <Clock size={12} />
+                        {session.time}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 leading-snug">
+                    {session.title[lang]}
+                  </h3>
+
+                  {/* Price + seats */}
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xl font-bold text-amber-600">{session.price}</span>
+                    <span className={`text-xs font-medium flex items-center gap-1 ${almostFull ? "text-red-600" : "text-gray-500"}`}>
+                      <Users size={13} />
+                      {seatsLabel}
+                    </span>
+                  </div>
+
+                  {/* Progress bar */}
+                  <div className="w-full h-1.5 bg-gray-200 rounded-full mb-5">
+                    <div
+                      className={`h-1.5 rounded-full transition-all ${almostFull ? "bg-red-500" : "bg-amber-500"}`}
+                      style={{ width: `${fillPct}%` }}
+                    />
+                  </div>
+
+                  {/* CTA */}
+                  <div className="mt-auto">
+                    {almostFull && (
+                      <p className="text-xs text-red-600 font-semibold mb-2 text-center">
+                        {lang === "en" ? "⚡ Almost full!" : "⚡ 残席わずか！"}
+                      </p>
+                    )}
+                    <a
+                      href={session.ctaUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center btn-primary text-sm"
+                    >
+                      {session.cta[lang]}
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );
