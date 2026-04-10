@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import AdminNav from "@/components/admin/AdminNav";
 import type { ReactNode } from "react";
 import { auth } from "@/lib/auth";
