@@ -18,8 +18,3 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 export default prisma;
-cat > 'src/app/api/auth/[...nextauth]/route.ts' << 'EOF'
-import { handlers } from "@/lib/auth";
-
-export const dynamic = 'force-dynamic';
-export const { GET, POST } = handlers;
