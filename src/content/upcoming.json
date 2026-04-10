@@ -89,5 +89,6 @@
       "ctaUrl": "https://forms.gle/placeholder"
     }
   ],
-  "months": ["May", "June", "July"]
+  "months": ["May", "June", "July"],
+  "comingSoonMonths": ["June", "July"]
 }

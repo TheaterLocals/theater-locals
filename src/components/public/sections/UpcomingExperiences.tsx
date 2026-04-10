@@ -11,6 +11,7 @@ export default function UpcomingExperiences() {
   const [activeMonth, setActiveMonth] = useState(upcoming.months[0]);
 
   const sessions = getSessionsByMonth(activeMonth);
+  const isComingSoon = (upcoming.comingSoonMonths as string[] | undefined)?.includes(activeMonth) ?? false;
 
   return (
     <section className="section-padding bg-stone-50">
@@ -57,7 +58,19 @@ export default function UpcomingExperiences() {
         </div>
 
         {/* Session cards */}
-        {sessions.length === 0 ? (
+        {isComingSoon ? (
+          <div className="py-16 text-center">
+            <div className="text-5xl mb-4">🗓️</div>
+            <p className="text-2xl font-bold text-gray-700 mb-2">
+              {lang === "en" ? "Coming Soon" : "近日公開"}
+            </p>
+            <p className="text-gray-500">
+              {lang === "en"
+                ? "Sessions for this month will be announced shortly. Subscribe below to get priority access."
+                : "この月の開催は近日発表予定です。下部でメール登録すると先行予約のご案内をお送りします。"}
+            </p>
+          </div>
+        ) : sessions.length === 0 ? (
           <p className="text-center text-gray-500 py-12">
             {lang === "en" ? "No sessions available for this month." : "この月の開催予定はありません。"}
           </p>
