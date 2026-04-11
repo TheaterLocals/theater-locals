@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useLang } from "@/contexts/LangContext";
 
 const stages = {
   en: [
@@ -62,43 +62,31 @@ const stages = {
 };
 
 export default function JourneyMap() {
-  const [lang, setLang] = useState<"en" | "jp">("en");
+  const { lang } = useLang();
   const currentStages = stages[lang];
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding bg-[#F5F1E8]">
       <div className="container-max">
 
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12">
-          <h2 className="text-4xl font-bold text-gray-900">
+        <div className="mb-12">
+          <p className="text-[#B8956A] text-xs tracking-[0.3em] uppercase mb-3">
+            {lang === "en" ? "The full arc" : "体験の全体像"}
+          </p>
+          <h2 className="font-playfair text-4xl sm:text-5xl font-bold text-gray-900">
             {lang === "en" ? "Your Journey" : "体験のジャーニーマップ"}
           </h2>
-          <div className="flex gap-2">
-            {(["en", "jp"] as const).map((l) => (
-              <button
-                key={l}
-                onClick={() => setLang(l)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
-                  lang === l
-                    ? "bg-amber-600 text-white"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
-              >
-                {l.toUpperCase()}
-              </button>
-            ))}
-          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-200">
           {currentStages.map((stage, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-lg shadow">
+            <div key={idx} className="bg-[#F5F1E8] p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold">
-                  {idx + 1}
+                <div className="w-10 h-10 bg-[#0A0A0A] text-white flex items-center justify-center font-bold text-sm">
+                  {String(idx + 1).padStart(2, "0")}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">
+                <h3 className="font-playfair text-lg font-bold text-gray-900 leading-snug">
                   {stage.title}
                 </h3>
               </div>
@@ -106,10 +94,10 @@ export default function JourneyMap() {
               <div className="space-y-3">
                 {stage.steps.map((step, stepIdx) => (
                   <div key={stepIdx} className="flex gap-3">
-                    <div className="text-amber-600 font-bold min-w-fit">
+                    <div className="text-[#B8956A] font-bold min-w-fit text-xs mt-0.5">
                       {String.fromCharCode(97 + stepIdx)}.
                     </div>
-                    <p className="text-gray-700">{step}</p>
+                    <p className="text-gray-700 text-sm leading-relaxed">{step}</p>
                   </div>
                 ))}
               </div>

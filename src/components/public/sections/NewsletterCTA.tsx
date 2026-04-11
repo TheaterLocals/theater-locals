@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { Mail } from "lucide-react";
+import { useLang } from "@/contexts/LangContext";
 
 const content = {
   en: {
@@ -24,32 +24,20 @@ const content = {
 };
 
 export default function NewsletterCTA() {
-  const [lang, setLang] = useState<"en" | "jp">("en");
+  const { lang } = useLang();
   const c = content[lang];
 
   return (
-    <section className="section-padding bg-gradient-to-r from-amber-600 to-orange-600">
+    <section className="section-padding bg-[#0A0A0A]">
       <div className="container-max max-w-2xl">
         <div className="text-center text-white">
-          {/* Lang toggle */}
-          <div className="flex justify-center gap-2 mb-6">
-            {(["en", "jp"] as const).map((l) => (
-              <button
-                key={l}
-                onClick={() => setLang(l)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
-                  lang === l
-                    ? "bg-white text-amber-600"
-                    : "bg-white/20 text-white hover:bg-white/30"
-                }`}
-              >
-                {l.toUpperCase()}
-              </button>
-            ))}
-          </div>
 
-          <h2 className="text-4xl font-bold mb-4">{c.title}</h2>
-          <p className="text-xl mb-8 text-amber-50">{c.subtitle}</p>
+          <p className="text-[#B8956A] text-xs tracking-[0.3em] uppercase mb-6">
+            {lang === "en" ? "Stay close" : "つながりを持つ"}
+          </p>
+
+          <h2 className="font-playfair text-4xl sm:text-5xl font-bold mb-4">{c.title}</h2>
+          <p className="text-xl mb-10 text-white/60">{c.subtitle}</p>
 
           <form className="space-y-4">
             <div className="flex flex-col sm:flex-row gap-4">
@@ -57,24 +45,24 @@ export default function NewsletterCTA() {
                 <input
                   type="email"
                   placeholder={c.placeholder}
-                  className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-[#B8956A] transition-colors"
                   required
                 />
               </div>
               <button
                 type="submit"
-                className="px-8 py-3 bg-white text-amber-600 font-bold rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
+                className="btn-theater flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                <Mail size={20} />
+                <Mail size={16} />
                 {c.cta}
               </button>
             </div>
 
-            <div className="mt-6 pt-6 border-t border-amber-500">
-              <p className="text-sm text-amber-50 mb-4">{c.partnerLabel}</p>
+            <div className="mt-8 pt-8 border-t border-white/10">
+              <p className="text-sm text-white/40 mb-4">{c.partnerLabel}</p>
               <button
                 type="button"
-                className="px-8 py-2 bg-white/20 text-white font-semibold rounded-lg hover:bg-white/30 transition-colors border border-white"
+                className="px-8 py-3 border border-white/30 text-white/70 text-sm tracking-widest uppercase hover:border-[#B8956A] hover:text-white transition-colors"
               >
                 {c.partnerCta}
               </button>

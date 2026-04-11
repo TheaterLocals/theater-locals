@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useLang } from "@/contexts/LangContext";
 
 const locations = [
   {
-    emoji: "🐟",
+    code: "MP",
     title: { en: "Misaki Port", jp: "三崎港" },
     subtitle: { en: "The tuna capital", jp: "マグロの産地" },
     desc: {
@@ -13,7 +13,7 @@ const locations = [
     },
   },
   {
-    emoji: "🥩",
+    code: "HY",
     title: { en: "Hayama", jp: "葉山" },
     subtitle: { en: "Hayama Beef country", jp: "葉山牛の産地" },
     desc: {
@@ -22,7 +22,7 @@ const locations = [
     },
   },
   {
-    emoji: "🌿",
+    code: "MC",
     title: { en: "Miura City", jp: "三浦市" },
     subtitle: { en: "Wakame & turban shell coast", jp: "わかめ・サザエの産地" },
     desc: {
@@ -33,55 +33,43 @@ const locations = [
 ];
 
 export default function MiuraInfo() {
-  const [lang, setLang] = useState<"en" | "jp">("en");
+  const { lang } = useLang();
 
   return (
-    <section className="section-padding bg-gradient-to-br from-blue-50 to-teal-50">
+    <section className="section-padding bg-white">
       <div className="container-max">
 
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12">
-          <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-2">
-              {lang === "en"
-                ? "After tonight, explore Miura Peninsula."
-                : "体験後、三浦半島へ。"}
-            </h2>
-            <p className="text-lg text-gray-600">
-              {lang === "en"
-                ? "Tonight's dishes trace back to these places. Go see them for yourself."
-                : "今夜の一皿が、明日の旅への入口になる。"}
-            </p>
-          </div>
-          <div className="flex gap-2 shrink-0">
-            {(["en", "jp"] as const).map((l) => (
-              <button
-                key={l}
-                onClick={() => setLang(l)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
-                  lang === l
-                    ? "bg-amber-600 text-white"
-                    : "bg-white text-gray-600 border border-gray-300 hover:border-amber-400"
-                }`}
-              >
-                {l.toUpperCase()}
-              </button>
-            ))}
-          </div>
+        <div className="mb-12">
+          <p className="text-[#B8956A] text-xs tracking-[0.3em] uppercase mb-3">
+            {lang === "en" ? "The land" : "産地を旅する"}
+          </p>
+          <h2 className="font-playfair text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+            {lang === "en"
+              ? "After tonight, explore Miura Peninsula."
+              : "体験後、三浦半島へ。"}
+          </h2>
+          <p className="text-gray-500 text-lg">
+            {lang === "en"
+              ? "Tonight's dishes trace back to these places. Go see them for yourself."
+              : "今夜の一皿が、明日の旅への入口になる。"}
+          </p>
         </div>
 
         {/* Location Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-200 mb-10">
           {locations.map((loc) => (
             <div
               key={loc.title.en}
-              className="bg-white rounded-2xl border border-blue-100 p-6 hover:shadow-lg transition-shadow"
+              className="bg-white p-8"
             >
-              <div className="text-4xl mb-3">{loc.emoji}</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-1">
+              <div className="w-12 h-12 bg-[#0A0A0A] flex items-center justify-center text-white text-xs font-bold tracking-widest mb-5">
+                {loc.code}
+              </div>
+              <h3 className="font-playfair text-xl font-bold text-gray-900 mb-1">
                 {loc.title[lang]}
               </h3>
-              <p className="text-sm font-semibold text-teal-600 mb-3">
+              <p className="text-xs font-semibold text-[#B8956A] uppercase tracking-wider mb-4">
                 {loc.subtitle[lang]}
               </p>
               <p className="text-sm text-gray-600 leading-relaxed">
@@ -92,7 +80,7 @@ export default function MiuraInfo() {
         </div>
 
         <div className="text-center">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-400">
             {lang === "en"
               ? "Guides and producer introductions provided after your experience."
               : "体験後に産地ガイド・生産者紹介をお渡しします。"}

@@ -3,11 +3,12 @@
 import { useState } from "react";
 import { CalendarDays, Clock, Users } from "lucide-react";
 import { getUpcomingContent, getSessionsByMonth, getSeatsLabel, isAlmostFull } from "@/lib/content";
+import { useLang } from "@/contexts/LangContext";
 
 const upcoming = getUpcomingContent();
 
 export default function UpcomingExperiences() {
-  const [lang, setLang] = useState<"en" | "jp">("en");
+  const { lang } = useLang();
   const [activeMonth, setActiveMonth] = useState(upcoming.months[0]);
 
   const sessions = getSessionsByMonth(activeMonth);
@@ -18,26 +19,13 @@ export default function UpcomingExperiences() {
       <div className="container-max">
 
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-          <h2 className="text-4xl font-bold text-gray-900">
+        <div className="mb-8">
+          <p className="text-[#B8956A] text-xs tracking-[0.3em] uppercase mb-3">
+            {lang === "en" ? "Upcoming" : "開催スケジュール"}
+          </p>
+          <h2 className="font-playfair text-4xl sm:text-5xl font-bold text-gray-900">
             {upcoming.title[lang]}
           </h2>
-          {/* Language toggle */}
-          <div className="flex gap-2">
-            {(["en", "jp"] as const).map((l) => (
-              <button
-                key={l}
-                onClick={() => setLang(l)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
-                  lang === l
-                    ? "bg-amber-600 text-white"
-                    : "bg-white text-gray-600 border border-gray-300 hover:border-amber-400"
-                }`}
-              >
-                {l.toUpperCase()}
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* Month tabs */}
@@ -60,8 +48,8 @@ export default function UpcomingExperiences() {
         {/* Session cards */}
         {isComingSoon ? (
           <div className="py-16 text-center">
-            <div className="text-5xl mb-4">🗓️</div>
-            <p className="text-2xl font-bold text-gray-700 mb-2">
+            <div className="w-12 h-px bg-[#B8956A]/60 mx-auto mb-8" />
+            <p className="font-playfair text-2xl font-bold text-gray-700 mb-2">
               {lang === "en" ? "Coming Soon" : "近日公開"}
             </p>
             <p className="text-gray-500">
@@ -128,7 +116,7 @@ export default function UpcomingExperiences() {
                   <div className="mt-auto">
                     {almostFull && (
                       <p className="text-xs text-red-600 font-semibold mb-2 text-center">
-                        {lang === "en" ? "⚡ Almost full!" : "⚡ 残席わずか！"}
+                        {lang === "en" ? "Almost full!" : "残席わずか！"}
                       </p>
                     )}
                     <a

@@ -4,10 +4,11 @@ import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useLang } from "@/contexts/LangContext";
 
 export default function Navigation() {
   const { data: session } = useSession();
-  const [lang, setLang] = useState<"en" | "jp">("en");
+  const { lang, setLang } = useLang();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks =
@@ -24,11 +25,14 @@ export default function Navigation() {
         ];
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
+    <nav className="bg-black/90 backdrop-blur-sm sticky top-0 z-50 border-b border-white/10">
       <div className="container-max flex items-center justify-between h-16">
 
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-amber-600 tracking-tight">
+        <Link
+          href="/"
+          className="font-playfair text-lg font-bold text-white tracking-wide"
+        >
           Theater Locals
         </Link>
 
@@ -38,22 +42,22 @@ export default function Navigation() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              className="text-sm text-white/60 hover:text-white font-medium transition-colors tracking-wide"
             >
               {link.label}
             </a>
           ))}
 
-          {/* Language toggle */}
-          <div className="flex gap-1 border border-gray-200 rounded-full p-0.5">
+          {/* Language toggle — global master */}
+          <div className="flex gap-0 border border-white/20 rounded-none p-0">
             {(["en", "jp"] as const).map((l) => (
               <button
                 key={l}
                 onClick={() => setLang(l)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
+                className={`px-3 py-1 text-xs font-semibold transition-colors ${
                   lang === l
-                    ? "bg-amber-600 text-white"
-                    : "text-gray-500 hover:text-gray-800"
+                    ? "bg-white text-black"
+                    : "text-white/50 hover:text-white"
                 }`}
               >
                 {l.toUpperCase()}
@@ -61,17 +65,20 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Auth */}
+          {/* Auth / CTA */}
           {session ? (
             <div className="flex items-center gap-4">
               {session.user?.role === "ADMIN" && (
-                <Link href="/admin" className="text-amber-600 text-sm font-semibold">
+                <Link
+                  href="/admin"
+                  className="text-amber-400 text-sm font-semibold"
+                >
                   Admin
                 </Link>
               )}
               <button
                 onClick={() => signOut()}
-                className="text-sm text-gray-500 hover:text-gray-800"
+                className="text-sm text-white/50 hover:text-white"
               >
                 {lang === "en" ? "Sign Out" : "ログアウト"}
               </button>
@@ -81,16 +88,16 @@ export default function Navigation() {
               href="https://forms.gle/placeholder"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary text-sm py-2"
+              className="text-sm text-white border border-white/40 px-4 py-1.5 hover:bg-white hover:text-black transition-colors tracking-widest uppercase"
             >
-              {lang === "en" ? "Reserve a seat" : "席を予約する"}
+              {lang === "en" ? "Reserve" : "予約"}
             </a>
           )}
         </div>
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden p-2 text-gray-600"
+          className="md:hidden p-2 text-white/70"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -100,13 +107,13 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-4 py-4 space-y-3">
+        <div className="md:hidden border-t border-white/10 bg-black/95 px-4 py-4 space-y-3">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="block text-sm font-medium text-gray-700 py-1"
+              className="block text-sm font-medium text-white/70 hover:text-white py-1"
             >
               {link.label}
             </a>
@@ -116,8 +123,10 @@ export default function Navigation() {
               <button
                 key={l}
                 onClick={() => setLang(l)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                  lang === l ? "bg-amber-600 text-white" : "bg-gray-100 text-gray-600"
+                className={`px-3 py-1 text-xs font-semibold border ${
+                  lang === l
+                    ? "bg-white text-black border-white"
+                    : "text-white/50 border-white/20 hover:text-white"
                 }`}
               >
                 {l.toUpperCase()}
@@ -128,7 +137,7 @@ export default function Navigation() {
             href="https://forms.gle/placeholder"
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full text-center btn-primary text-sm mt-2"
+            className="block w-full text-center text-sm text-white border border-white/40 px-4 py-2 hover:bg-white hover:text-black transition-colors tracking-widest uppercase mt-2"
           >
             {lang === "en" ? "Reserve a seat" : "席を予約する"}
           </a>
