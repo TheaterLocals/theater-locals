@@ -11,18 +11,24 @@ export default function Navigation() {
   const { lang, setLang } = useLang();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navLinks =
-    lang === "en"
-      ? [
-          { label: "Experiences", href: "#featured" },
-          { label: "About", href: "#why" },
-          { label: "Shop", href: "#shop" },
-        ]
-      : [
-          { label: "体験を見る", href: "#featured" },
-          { label: "Theater Localsとは", href: "#why" },
-          { label: "ショップ", href: "#shop" },
-        ];
+  const navLinks = [
+    {
+      label: lang === "en" ? "Program" : "プログラム",
+      href: "/programs/spring-miura",
+    },
+    {
+      label: lang === "en" ? "About" : "私たちについて",
+      href: "/about",
+    },
+    {
+      label: lang === "en" ? "Sessions" : "開催日程",
+      href: "/sessions",
+    },
+    {
+      label: lang === "en" ? "Shop" : "ショップ",
+      href: "/shop",
+    },
+  ];
 
   return (
     <nav className="bg-black/90 backdrop-blur-sm sticky top-0 z-50 border-b border-white/10">
@@ -39,17 +45,17 @@ export default function Navigation() {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-            <a
-              key={link.label}
+            <Link
+              key={link.href}
               href={link.href}
               className="text-sm text-white/60 hover:text-white font-medium transition-colors tracking-wide"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
 
           {/* Language toggle — global master */}
-          <div className="flex gap-0 border border-white/20 rounded-none p-0">
+          <div className="flex gap-0 border border-white/20 p-0">
             {(["en", "jp"] as const).map((l) => (
               <button
                 key={l}
@@ -109,14 +115,14 @@ export default function Navigation() {
       {menuOpen && (
         <div className="md:hidden border-t border-white/10 bg-black/95 px-4 py-4 space-y-3">
           {navLinks.map((link) => (
-            <a
-              key={link.label}
+            <Link
+              key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className="block text-sm font-medium text-white/70 hover:text-white py-1"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <div className="flex gap-2 pt-2">
             {(["en", "jp"] as const).map((l) => (
