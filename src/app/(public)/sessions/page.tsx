@@ -20,7 +20,7 @@ export default function SessionsPage() {
       <div className="container-max pt-8">
         <Link href="/" className="inline-flex items-center gap-2 text-xs text-gray-400 hover:text-gray-700 transition-colors tracking-wide uppercase">
           <ArrowLeft size={12} />
-          {lang === "en" ? "Back to top" : "トップに戻る"}
+          {lang === "en" ? "← Home" : "← ホーム"}
         </Link>
       </div>
 

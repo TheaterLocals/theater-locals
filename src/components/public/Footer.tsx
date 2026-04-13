@@ -1,9 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { getFooterContent } from "@/lib/content";
-
-const footer = getFooterContent();
+import { useLang } from "@/contexts/LangContext";
 
 const SocialIcon = ({ name }: { name: string }) => {
   if (name === "Instagram") {
@@ -21,110 +18,51 @@ const SocialIcon = ({ name }: { name: string }) => {
 };
 
 export default function Footer() {
-  const [lang, setLang] = useState<"en" | "jp">("en");
-  const [email, setEmail] = useState("");
+  const { lang } = useLang();
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container-max section-padding">
+    <footer className="bg-[#0A0A0A] text-white border-t border-white/5">
+      <div className="container-max py-12">
 
-        {/* Top row: brand + language toggle */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10 pb-8 border-b border-gray-800">
+        {/* Brand row */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8 pb-8 border-b border-white/10">
           <div>
-            <p className="text-xl font-bold text-amber-500 mb-1">Theater Locals</p>
-            <p className="text-sm text-gray-400">
+            <p className="font-playfair text-lg font-bold text-white mb-1">Theater Locals</p>
+            <p className="text-sm text-white/40">
               {lang === "en"
                 ? "A live window into local food culture."
                 : "地域の食文化への、生きた窓。"}
             </p>
           </div>
-          <div className="flex gap-1 border border-gray-700 rounded-full p-0.5 self-start sm:self-auto">
-            {(["en", "jp"] as const).map((l) => (
-              <button
-                key={l}
-                onClick={() => setLang(l)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
-                  lang === l ? "bg-amber-600 text-white" : "text-gray-400 hover:text-white"
-                }`}
-              >
-                {l.toUpperCase()}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Main columns */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-
-          {/* Link columns */}
-          {footer.columns.map((col) => (
-            <div key={col.id}>
-              <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
-                {col.heading[lang]}
-              </h4>
-              <ul className="space-y-2">
-                {col.links.map((link, i) => (
-                  <li key={i}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-gray-400 hover:text-white transition-colors"
-                    >
-                      {link.label[lang]}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          {/* Newsletter */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
-              {footer.newsletter.label[lang]}
-            </h4>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setEmail("");
-              }}
-              className="flex gap-2"
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={footer.newsletter.placeholder[lang]}
-                className="flex-1 min-w-0 bg-gray-800 border border-gray-700 text-white text-sm px-3 py-2 rounded-lg placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
-              />
-              <button
-                type="submit"
-                className="bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold px-3 py-2 rounded-lg transition-colors shrink-0"
-              >
-                {footer.newsletter.cta[lang]}
-              </button>
-            </form>
-          </div>
-
-        </div>
-
-        {/* Bottom row */}
-        <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-500">{footer.copyright[lang]}</p>
-
           {/* Social links */}
           <div className="flex gap-4">
-            {footer.social.map((s) => (
-              <a
-                key={s.name}
-                href={s.href}
-                aria-label={s.name}
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <SocialIcon name={s.name} />
-              </a>
-            ))}
+            <a
+              href="https://www.instagram.com/"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/30 hover:text-white transition-colors"
+            >
+              <SocialIcon name="Instagram" />
+            </a>
+            <a
+              href="https://x.com/"
+              aria-label="X (Twitter)"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/30 hover:text-white transition-colors"
+            >
+              <SocialIcon name="X" />
+            </a>
           </div>
         </div>
+
+        {/* Bottom row — copyright only */}
+        <p className="text-xs text-white/25">
+          {lang === "en"
+            ? "© 2026 Theater Locals. All rights reserved."
+            : "© 2026 Theater Locals. All rights reserved."}
+        </p>
 
       </div>
     </footer>

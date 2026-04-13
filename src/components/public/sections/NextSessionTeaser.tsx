@@ -50,7 +50,7 @@ export default function NextSessionTeaser() {
               <span className="text-[#B8956A]">→</span>
             </a>
             <Link
-              href="/sessions"
+              href="/programs/spring-miura#sessions"
               className="text-xs text-gray-400 hover:text-gray-700 underline underline-offset-2 transition-colors"
             >
               {lang === "en" ? "View all sessions →" : "全日程を見る →"}

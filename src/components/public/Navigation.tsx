@@ -13,16 +13,12 @@ export default function Navigation() {
 
   const navLinks = [
     {
-      label: lang === "en" ? "Program" : "プログラム",
+      label: lang === "en" ? "Experience" : "体験",
       href: "/programs/spring-miura",
     },
     {
       label: lang === "en" ? "About" : "私たちについて",
       href: "/about",
-    },
-    {
-      label: lang === "en" ? "Sessions" : "開催日程",
-      href: "/sessions",
     },
     {
       label: lang === "en" ? "Shop" : "ショップ",
@@ -35,10 +31,7 @@ export default function Navigation() {
       <div className="container-max flex items-center justify-between h-16">
 
         {/* Logo */}
-        <Link
-          href="/"
-          className="font-playfair text-lg font-bold text-white tracking-wide"
-        >
+        <Link href="/" className="font-playfair text-lg font-bold text-white tracking-wide">
           Theater Locals
         </Link>
 
@@ -54,16 +47,14 @@ export default function Navigation() {
             </Link>
           ))}
 
-          {/* Language toggle — global master */}
+          {/* Language toggle — header only, global master */}
           <div className="flex gap-0 border border-white/20 p-0">
             {(["en", "jp"] as const).map((l) => (
               <button
                 key={l}
                 onClick={() => setLang(l)}
                 className={`px-3 py-1 text-xs font-semibold transition-colors ${
-                  lang === l
-                    ? "bg-white text-black"
-                    : "text-white/50 hover:text-white"
+                  lang === l ? "bg-white text-black" : "text-white/50 hover:text-white"
                 }`}
               >
                 {l.toUpperCase()}
@@ -75,17 +66,9 @@ export default function Navigation() {
           {session ? (
             <div className="flex items-center gap-4">
               {session.user?.role === "ADMIN" && (
-                <Link
-                  href="/admin"
-                  className="text-amber-400 text-sm font-semibold"
-                >
-                  Admin
-                </Link>
+                <Link href="/admin" className="text-amber-400 text-sm font-semibold">Admin</Link>
               )}
-              <button
-                onClick={() => signOut()}
-                className="text-sm text-white/50 hover:text-white"
-              >
+              <button onClick={() => signOut()} className="text-sm text-white/50 hover:text-white">
                 {lang === "en" ? "Sign Out" : "ログアウト"}
               </button>
             </div>
@@ -130,9 +113,7 @@ export default function Navigation() {
                 key={l}
                 onClick={() => setLang(l)}
                 className={`px-3 py-1 text-xs font-semibold border ${
-                  lang === l
-                    ? "bg-white text-black border-white"
-                    : "text-white/50 border-white/20 hover:text-white"
+                  lang === l ? "bg-white text-black border-white" : "text-white/50 border-white/20 hover:text-white"
                 }`}
               >
                 {l.toUpperCase()}
