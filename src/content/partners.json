@@ -1,0 +1,73 @@
+{
+  "eyebrow": {
+    "en": "Beyond the Plate",
+    "jp": "皿の向こうの三浦"
+  },
+  "heading": {
+    "en": "The story on your plate continues here",
+    "jp": "この皿の物語は、ここに続いています"
+  },
+  "intro": {
+    "en": "Three places in Miura carry the continuation of tonight's story. Not as a transaction, but as the next chapter.",
+    "jp": "今夜の物語の続きが、三浦の三つの場所に待っています。取引としてではなく、次の章として。"
+  },
+  "partners": [
+    {
+      "id": "misakishuku",
+      "dish": { "en": "Dish 3 · Tuna", "jp": "第三皿 マグロ" },
+      "name": { "en": "Misakishuku", "jp": "三崎宿" },
+      "tagline": {
+        "en": "The tuna warehouse, reborn as an inn",
+        "jp": "マグロ問屋の蔵、泊まれる宿へ"
+      },
+      "story": {
+        "en": "A Showa-era tuna wholesaler's warehouse at Misaki Port, reborn as a six-room inn. The walls still hold a faint scent of the tuna that passed through. The road your tuna traveled begins and ends here.",
+        "jp": "昭和の最盛期、日本中のマグロが通った蔵。壁にはまだ微かに匂いが残ります。あなたが今食べているマグロの道は、この蔵から始まり、再びこの蔵に戻ります。"
+      },
+      "imageSrc": "/images/partners/misakishuku.jpg",
+      "externalUrl": "https://example.com/misakishuku-placeholder",
+      "note": {
+        "en": "Booking details shared with event participants",
+        "jp": "予約詳細はイベント参加者にご案内します"
+      }
+    },
+    {
+      "id": "jorakuji",
+      "dish": { "en": "Dish 4 · Sazae", "jp": "第四皿 サザエ" },
+      "name": { "en": "Jōrakuji Temple", "jp": "浄楽寺" },
+      "tagline": {
+        "en": "Unkei's Buddhas and the dark temple night",
+        "jp": "運慶仏と、本堂の暗闇参り"
+      },
+      "story": {
+        "en": "The Kamakura-era Wada clan ate from the sea and commissioned Buddhist sculptures from Unkei. Both still stand in Jōrakuji's hall. Stay in the temple lodgings and face the Unkei Buddhas in total darkness.",
+        "jp": "鎌倉期、海の恵みで生きた和田一族が運慶に彫らせた仏像が本堂に残ります。宿坊に泊まれば、夜、すべての灯りを消した本堂で運慶仏と対面する『暗闇参り』が体験できます。"
+      },
+      "imageSrc": "/images/partners/jorakuji.jpg",
+      "externalUrl": "https://example.com/jorakuji-placeholder",
+      "note": {
+        "en": "Unkei VR available at temple (not included in the show)",
+        "jp": "運慶VRは寺側で体験可能（当日の演出には含まれません）"
+      }
+    },
+    {
+      "id": "tap-inn-miura",
+      "dish": { "en": "Pairing · Beer", "jp": "ペアリング ビール" },
+      "name": { "en": "TAP INN MIURA", "jp": "TAP INN MIURA" },
+      "tagline": {
+        "en": "Sleep where your beer is brewed",
+        "jp": "タップ付きの宿で、夜の続きを"
+      },
+      "story": {
+        "en": "Miura Brewery's own inn. Every room has a tap you pour yourself. Tonight's pairing beer continues under that tap.",
+        "jp": "三浦ブルワリー直営の宿。すべての部屋にタップが付いていて、自分で注げます。今夜のペアリングビールの続きが、タップの下にあります。"
+      },
+      "imageSrc": "/images/partners/tap-inn-miura.jpg",
+      "externalUrl": "https://miura-brewery.com/inn/",
+      "note": {
+        "en": "Direct booking via Miura Brewery",
+        "jp": "予約は三浦ブルワリー公式サイトから"
+      }
+    }
+  ]
+}

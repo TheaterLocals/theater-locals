@@ -10,6 +10,8 @@ import upcomingData from "../content/upcoming.json";
 import whyData from "../content/why.json";
 import productsData from "../content/products.json";
 import footerData from "../content/footer.json";
+import partnersData from "../content/partners.json";
+import beyondData from "../content/beyond.json";
 
 // ──────────────────────────────────────────────
 // Types
@@ -43,6 +45,14 @@ export type Product = ProductsContent["products"][number];
 export type FooterContent = typeof footerData;
 export type FooterColumn = FooterContent["columns"][number];
 
+// Partners
+export type PartnersContent = typeof partnersData;
+export type Partner = PartnersContent["partners"][number];
+
+// Beyond
+export type BeyondContent = typeof beyondData;
+export type BeyondSpot = BeyondContent["spots"][number];
+
 // ──────────────────────────────────────────────
 // Accessors
 // ──────────────────────────────────────────────
@@ -69,6 +79,14 @@ export function getProductsContent(): ProductsContent {
 
 export function getFooterContent(): FooterContent {
   return footerData;
+}
+
+export function getPartnersContent(): PartnersContent {
+  return partnersData;
+}
+
+export function getBeyondContent(): BeyondContent {
+  return beyondData;
 }
 
 // ──────────────────────────────────────────────

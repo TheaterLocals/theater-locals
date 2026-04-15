@@ -1,0 +1,48 @@
+{
+  "eyebrow": {
+    "en": "Discover More Miura",
+    "jp": "もう一歩、三浦を"
+  },
+  "heading": {
+    "en": "Four more reasons to stay another day",
+    "jp": "もう一日、三浦にいたくなる四つの場所"
+  },
+  "spots": [
+    {
+      "id": "jogashima",
+      "name": { "en": "Jōgashima", "jp": "城ヶ島" },
+      "copy": {
+        "en": "Sea-carved caves, the southernmost lighthouse, and the sunset that inspired Hakushū's poem.",
+        "jp": "海蝕洞と灯台、白秋が詠んだ夕景。三浦半島最南端の島。"
+      },
+      "mapUrl": "https://www.google.com/maps/place/%E5%9F%8E%E3%83%B6%E5%B3%B6"
+    },
+    {
+      "id": "soleil",
+      "name": { "en": "Soleil Hill", "jp": "ソレイユの丘" },
+      "copy": {
+        "en": "A hillside park above Hayama beef country — flower fields, farm animals, and sea views.",
+        "jp": "葉山牛の産地を見下ろす丘の公園。花畑・動物・海を一度に。"
+      },
+      "mapUrl": "https://www.google.com/maps/place/%E3%82%BD%E3%83%AC%E3%82%A4%E3%83%A6%E3%81%AE%E4%B8%98"
+    },
+    {
+      "id": "miura-beach",
+      "name": { "en": "Miura Beach", "jp": "三浦海岸" },
+      "copy": {
+        "en": "In spring, a tunnel of cherry blossoms along the railway. In summer, the closest open sea from Tokyo.",
+        "jp": "春は線路沿いの桜並木、夏は東京から一番近い海水浴場。"
+      },
+      "mapUrl": "https://www.google.com/maps/place/%E4%B8%89%E6%B5%A6%E6%B5%B7%E5%B2%B8"
+    },
+    {
+      "id": "koajiro",
+      "name": { "en": "Koajiro Forest", "jp": "小網代の森" },
+      "copy": {
+        "en": "The peninsula's only fully intact evergreen broadleaf ecosystem, from spring source to ocean.",
+        "jp": "三浦半島唯一の完全な照葉樹林生態系。源流から海まで一つのまま残る森。"
+      },
+      "mapUrl": "https://www.google.com/maps/place/%E5%B0%8F%E7%B6%B2%E4%BB%A3%E3%81%AE%E6%A3%AE"
+    }
+  ]
+}
